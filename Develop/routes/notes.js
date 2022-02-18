@@ -1,11 +1,16 @@
 const notes = require('express').Router();
+const {
+    readFromFile,
+    readAndAppend,
+    writeToFile,
+  } = require('../helpers/fsUtils');
 
 //Route for retrieving all the notes
 notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
   });
 
-  // POST Route for a new UX/UI tip
+  // Post Route for a new note
 notes.post('/', (req, res) => {
     console.log(req.body);
   
@@ -18,10 +23,10 @@ notes.post('/', (req, res) => {
         // tip_id: uuidv4(),
       };
   
-      readAndAppend(newTip, './db/tips.json');
-      res.json(`Tip added successfully 🚀`);
+      readAndAppend(newTip, './db/db.json');
+      res.json(`note added successfully 🚀`);
     } else {
-      res.error('Error in adding tip');
+      res.error('Error in adding note');
     }
   });
   
