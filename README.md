@@ -5,8 +5,8 @@
   Creating an application to save notes for future reference. Allows a user to save and delete notes.
 
   ## Table of Contents:
-  * [Demo](#demo) 
-  * [Deployment](#deployment)  
+  * [DEMO](#demo) 
+  * [DEPLOYMENT](#deployment)  
   * [USAGE](#usage)
   * [LICENSE](#license)  
   * [TESTS](#tests)  
