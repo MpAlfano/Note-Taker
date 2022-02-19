@@ -20,7 +20,7 @@
 
   ## Usage
 
-  An application to save notes for future reference, with a option to delete as well.
+  An application to save notes for future reference, with an option to delete as well.
 
   ## License
 
