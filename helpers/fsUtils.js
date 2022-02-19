@@ -20,4 +20,25 @@ const readAndAppend = (content, file) => {
   });
 };
 
-module.exports = { readFromFile, writeToFile, readAndAppend };
+//Function to compare ids and delete the note
+
+const readAndDelete = (content, file) => {
+  fs.readFile(file, 'utf8', (err, data) => {
+
+    if (err) {
+      console.error(err);
+    } else {
+      const notes = JSON.parse(data)
+      console.log(notes)
+      notes.forEach(note => {
+        console.log(note.id)
+        if (note.id === content) {
+          notes.splice(note, 1)
+          writeToFile(file, notes)
+        }
+      })
+    }
+  });
+};
+
+module.exports = { readFromFile, readAndAppend, readAndDelete, writeToFile };

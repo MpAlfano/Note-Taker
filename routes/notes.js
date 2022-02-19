@@ -1,6 +1,6 @@
 const notes = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
-const { readFromFile, readAndAppend, } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, readAndDelete } = require('../helpers/fsUtils');
 
 //Route for retrieving all the notes
 notes.get('/', (req, res) =>
@@ -27,26 +27,15 @@ notes.post('/', (req, res) => {
   }
 });
 
+// Delete Route for a note
 notes.delete(`/`, (req, res) => {
   console.log(req.baseUrl)
   noteid = req.baseUrl.split('api/notes/').pop()
   console.log(noteid)
-  fs.writeFile(apiDB, data, (err) => err ? console.error(err) : console.log('Updated'))
+  readAndDelete(noteid, './db/db.json')
   res.end()
 })
 
-// notes.delete(`/`, (req, res) => {
-//   let data = JSON.stringify(req.params.id);
-//   let notes = readFromFile('./db/db.json')
-//   console.log(req.params.id)
-//   data.forEach(note => {
-//     if (note.id == req.params.id) {
-//           console.log(`Deleted`);
-//           notes.splice(i, 1); 
-//         }
-//   });
-//   fs.writeFile(apiDB, data, (err) => err ? console.error(err) : console.log('Updated'))
-// })
 
 
 module.exports = notes;
