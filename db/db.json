@@ -1,1 +1,17 @@
-[]
+[
+    {
+        "title": "Study",
+        "text": "Spend at least 2 hours going over material",
+        "id": "1d410f78-60cc-49b6-b4bc-183682800ffa"
+    },
+    {
+        "title": "Trip",
+        "text": "Plan a trip to go visit my parents",
+        "id": "716323e1-930d-496c-9b16-686ccd72f0f2"
+    },
+    {
+        "title": "Vet",
+        "text": "Have to take bobo to the vet on the 29th of May",
+        "id": "1dbd65e0-7bad-4db9-b2e7-ee1762ec4614"
+    }
+]
