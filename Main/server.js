@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const path = require('path');
 const api = require('./routes/index.js');
 
@@ -9,6 +10,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', api);
+
+app.get('/api/notes', (req, res) => {
+    let allNotes = fs.readFileSync(path.join(__dirname, './db/db.json'));
+    allNotes = JSON.parse(allNotes);
+    res.json(allNotes);
+});
+
 
 app.use(express.static('public'));
 
@@ -29,5 +37,5 @@ app.get('*', (req, res) =>
 
 //To verify server is running
 app.listen(PORT, () =>
-  console.log(`App listening at http://localhost:${PORT} 🚀`)
+  console.log(`App listening at http://localhost:${PORT}`)
 );
