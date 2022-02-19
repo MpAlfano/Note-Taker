@@ -17,7 +17,7 @@ notes.post('/', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuidv4(),
+      id: uuidv4(),
     };
 
     readAndAppend(newNote, './db/db.json');
@@ -26,5 +26,27 @@ notes.post('/', (req, res) => {
     res.error('Error in adding new note');
   }
 });
+
+notes.delete(`/`, (req, res) => {
+  console.log(req.baseUrl)
+  noteid = req.baseUrl.split('api/notes/').pop()
+  console.log(noteid)
+  fs.writeFile(apiDB, data, (err) => err ? console.error(err) : console.log('Updated'))
+  res.end()
+})
+
+// notes.delete(`/`, (req, res) => {
+//   let data = JSON.stringify(req.params.id);
+//   let notes = readFromFile('./db/db.json')
+//   console.log(req.params.id)
+//   data.forEach(note => {
+//     if (note.id == req.params.id) {
+//           console.log(`Deleted`);
+//           notes.splice(i, 1); 
+//         }
+//   });
+//   fs.writeFile(apiDB, data, (err) => err ? console.error(err) : console.log('Updated'))
+// })
+
 
 module.exports = notes;
