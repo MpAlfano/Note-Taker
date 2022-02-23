@@ -9,7 +9,6 @@
   * [DEPLOYMENT](#deployment)  
   * [USAGE](#usage)
   * [LICENSE](#license)  
-  * [TESTS](#tests)  
 
   ## Demo
 ![Screenshot (578)](https://user-images.githubusercontent.com/96558916/154822739-0bc7c54f-c880-44b7-be95-9eeefd028626.png)
